@@ -1,8 +1,10 @@
 # Tickboard
 
-Displays a red/green dashboard of who in your team has completed their 7.5 hours of time today on Tick. Useful for screens mounted around your development team to help remind them to complete their time tracking before heading home.
+Displays a red/green dashboard of who in your team has completed their 7.5 hours of time today on [Tick](http://tickspot.com/). Useful for screens mounted around your development team to help remind them to complete their time tracking before heading home. The page meta-refreshes every minute.
 
-Much of the Tick querying code was taken from [Tim Blair](http://tim.bla.ir/)'s Tick notification project (currently private).
+Much of the Tick querying code was shamelessly taken from [Tim Blair](http://tim.bla.ir/)'s Tick notification project (currently private).
+
+Find out more about Tick at [tickspot.com](http://tickspot.com/)
 
 ## Usage
 
