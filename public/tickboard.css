@@ -1,0 +1,46 @@
+body {
+	background: white;
+	margin: 10px 10px 10px -30px;
+	padding: 0;
+	font-family: "helvetica neue", helvetica, arial, sans-serif;
+	font-size: 22px;
+	line-height: 30px;
+}
+
+dl {
+	width: 100%;
+	margin: 0; padding: 0;
+	text-indent: 5px;
+}
+dt, dd { 
+	float: left;
+	margin: 0 0 10px 0; 
+	padding: 0;
+	height: 30px;
+}
+dt {
+	width: 18%;
+}
+dd {
+	width: 32%;
+}
+dd div {
+	height: 30px;
+	color: white;
+}
+
+dt img {
+	width: 30px;
+	height: 30px;
+	margin: 0 5px 0 0;
+	border-left: 40px solid white;
+	display: block;
+	float: left;
+}
+
+.good { color: green; }
+.good div { background: green; }
+
+dt.bad { color: red; font-weight: bold; } 
+.bad div { background: red; }
+
