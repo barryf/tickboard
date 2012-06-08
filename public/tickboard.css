@@ -1,3 +1,4 @@
+
 body {
 	background: white;
 	margin: 10px 10px 10px -30px;
@@ -12,18 +13,24 @@ dl {
 	margin: 0; padding: 0;
 	text-indent: 5px;
 }
+
 dt, dd { 
 	float: left;
 	margin: 0 0 10px 0; 
 	padding: 0;
 	height: 30px;
 }
+
 dt {
 	width: 18%;
 }
+
+
+
 dd {
 	width: 32%;
 }
+
 dd div {
 	height: 30px;
 	color: white;
@@ -38,9 +45,67 @@ dt img {
 	float: left;
 }
 
-.good { color: green; }
-.good div { background: green; }
+.good { 
+	color: green; 
+}
 
-dt.bad { color: red; font-weight: bold; } 
-.bad div { background: red; }
+.good div { 
+	background: green; 
+}
+
+dt.bad { 
+	color: red; 
+	font-weight: bold; 
+} 
+.bad div { 		
+	background: red; 
+}
+
+@media only screen and (max-width:1024px),only screen and (max-device-width:1024px) {
+	body {		
+		font-size: 18px;
+		line-height: 20px;
+	}
+}
+
+@media only screen and (max-width:950px),only screen and (max-device-width:950px) {
+	body {		
+		font-size: 14px;
+		line-height: 14px;
+	}
+}
+
+@media only screen and (max-width:900px),only screen and (max-device-width:900px) {
+	body {		
+		font-size: 11px;
+		line-height: 12px;
+	}
+}
+
+@media only screen and (max-width:700px),only screen and (max-device-width:700px) {
+	body {		
+		font-size: 12px;
+		line-height: 15px;
+	}
+
+	dt span {		
+		display: block;
+		position:absolute;
+		margin-left:70px;
+		margin-top:0px;
+	}
+
+	.good div { 
+			height:14px;
+			position:relative;
+			top:16px;
+	}
+
+	.bad div { 
+			height:14px;
+			position:relative;
+			top:16px;
+	}
+
+}
 
