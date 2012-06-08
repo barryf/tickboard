@@ -14,13 +14,13 @@
 			<% @users.each do |user| 
 				perc = (user[:hours]/7.5*100).to_i
 				perc = 100 if perc > 100
-				hours = sprintf('%.1f', user[:hours])
+				hours = sprintf('%.1f', user[:hours]).to_f
 			%>
-				<dt class="<% if perc < 100 %>bad<% else %>good<% end %>">
+				<dt class="<% if hours < 7.5 %>bad<% else %>good<% end %>">
 					<img src="<%= user[:img] %>" alt="<%= user[:name] %>" />
-					<span><%= user[:name] %></span>
+					<span><%= user[:name] %></span>				
 				</dt>
-				<dd class="<% if perc < 100 %>bad<% else %>good<% end %>"><div style="width: <%= perc %>%;"><%= hours %></div></dd>
+				<dd class="<% if hours < 7.5 %>bad<% else %>good<% end %>"><div style="width: <%= perc %>%;"><%= hours %></div></dd>
 			<% end %>
 		</dl>
 	</body>
