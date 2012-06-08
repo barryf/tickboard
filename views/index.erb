@@ -12,10 +12,10 @@
 	<body>
 		<dl>
 			<% @users.each do |user| 
-				perc = (user[:hours]/7.5*100).to_i
-				perc = 100 if perc > 100
 				hours = sprintf('%.1f', user[:hours]).to_f
 				hours = 7.5 if hours >7.5
+				perc = (hours/7.5*100).to_i
+				perc = 100 if perc > 100
 			%>
 				<dt class="<% if hours < 7.5 %>bad<% else %>good<% end %>">
 					<img src="<%= user[:img] %>" alt="<%= user[:name] %>" />
