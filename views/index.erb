@@ -16,7 +16,7 @@
 				perc = 100 if perc > 100
 				hours = sprintf('%.1f', user[:hours])
 			%>
-				<% if not perc == 100 %>
+				<% if perc < 100 %>
 					<dt class="bad">
 						<img src="<%= user[:img] %>" alt="<%= user[:name] %>" />
 						<span><%= user[:name] %></span>
