@@ -19,7 +19,7 @@
 				<% if perc < 100 %>
 					<dt class="bad">
 						<img src="<%= user[:img] %>" alt="<%= user[:name] %>" />
-						<span><% if user[:name] == "tblair" %>Tim Rocks!<% else %><%= user[:name] %> <% end %></span>
+						<span><%= user[:name] %></span>
 					</dt>
 					<dd class="bad"><div style="width: <%= perc %>%;"><%= hours %></div></dd>
 				<% end %>
