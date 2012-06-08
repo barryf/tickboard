@@ -18,7 +18,7 @@
 			%>
 				<dt class="<% if perc < 100 %>bad<% else %>good<% end %>">
 					<img src="<%= user[:img] %>" alt="<%= user[:name] %>" />
-					<%= user[:name] %>
+					<span><%= user[:name] %></span>
 				</dt>
 				<dd class="<% if perc < 100 %>bad<% else %>good<% end %>"><div style="width: <%= perc %>%;"><%= hours %></div></dd>
 			<% end %>

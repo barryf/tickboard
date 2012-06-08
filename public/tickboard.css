@@ -1,3 +1,4 @@
+
 body {
 	background: white;
 	margin: 10px 10px 10px -30px;
@@ -12,18 +13,22 @@ dl {
 	margin: 0; padding: 0;
 	text-indent: 5px;
 }
+
 dt, dd { 
 	float: left;
 	margin: 0 0 10px 0; 
 	padding: 0;
 	height: 30px;
 }
+
 dt {
 	width: 18%;
 }
+
 dd {
 	width: 32%;
 }
+
 dd div {
 	height: 30px;
 	color: white;
@@ -38,9 +43,99 @@ dt img {
 	float: left;
 }
 
-.good { color: green; }
-.good div { background: green; }
+.good { 
+	color: green; 
+}
 
-dt.bad { color: red; font-weight: bold; } 
-.bad div { background: red; }
+.good div { 
+	background: green; 
+}
+
+dt.bad { 
+	color: red; 
+	font-weight: bold; 
+} 
+.bad div { 		
+	background: red; 
+}
+
+@media only screen and (max-width:480px),only screen and (max-device-width:480px) {
+	body {
+		background: white;
+		margin: 10px 10px 10px -30px;
+		padding: 0;
+		font-family: "helvetica neue", helvetica, arial, sans-serif;
+		font-size: 12px;
+		line-height: 15px;
+	}
+
+	dl {
+		width: 100%;
+		margin: 0; padding: 0;
+		text-indent: 5px;
+	}
+	
+	dt, dd { 
+		float: left;
+		margin: 0 0 10px 0; 
+		padding: 0;
+		height: 30px;
+	}
+
+	dt {
+		width: 18%;
+	}
+
+
+	dd {
+		width: 32%;
+	}
+
+	dd div {
+		height: 30px;
+		color: white;
+
+	}
+
+	dt img {
+		width: 30px;
+		height: 30px;
+		margin: 0 5px 0 0;
+		border-left: 40px solid white;
+		display: block;
+		float: left;
+	}
+
+	dt span {
+		
+		display: block;
+		position:absolute;
+		margin-left:70px;
+		margin-top:0px;
+	}
+
+	.good { 
+			color: green; 
+		  }
+
+	.good div { 
+			background: green; 
+			height:14px;
+			position:relative;
+			top:16px;
+	}
+
+	dt.bad { 
+			color: red; 
+			font-weight: bold; 
+	} 
+
+	.bad div { 
+			background: red; 
+			height:14px;
+			position:relative;
+			top:16px;
+	}
+
+}
 
