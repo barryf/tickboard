@@ -1,10 +1,52 @@
 <!doctype html>
 <html lang="en">
 	<head>
+
+	<script>
+		function refreshUser(name,value){
+			var xmlhttp = new XMLHttpRequest;
+
+			xmlhttp.onreadystatechange=function()
+			  {
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			    {
+			    	var image = document.getElementById(name + '_image');
+			    	var hours = document.getElementById(name + '_hours');
+			    	var perc = document.getElementById(name + '_perc');
+
+			    	var h = value || xmlhttp.responseText;
+
+					if (h >0 || h  < 8){
+			    		perc.innerText = h;
+					
+
+						p = (h / 7.5*100);
+
+						perc.style.width= p + '%';
+
+						if (h < 7.5) {
+							image.setAttribute('class','bad');
+							hours.setAttribute('class','bad');
+						}
+						else
+						{
+							image.setAttribute('class','good');
+							hours.setAttribute('class','good');
+						}
+					}
+
+			    }
+			  }
+			xmlhttp.open("GET","/user/" + name,true);
+			xmlhttp.send();
+
+			
+		}
+	</script>
 		<meta charset="utf-8" />
 		<title>Tickboard</title>
 		<link rel="stylesheet" href="/tickboard.css" type="text/css" />
-		<meta http-equiv="refresh" content="60" />
+		<!--<meta http-equiv="refresh" content="60" />-->
 		<!--[if IE]>
 			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
@@ -17,11 +59,17 @@
 				perc = (hours/7.5*100).to_i
 				perc = 100 if perc > 100
 			%>
-				<dt class="<% if hours < 7.5 %>bad<% else %>good<% end %>">
+			<script>
+				setInterval(function(){refreshUser('<%= user[:name] %>');},60000);
+			</script>
+
+				<dt id="<%= user[:name] %>_image" class="<% if hours < 7.5 %>bad<% else %>good<% end %>">
 					<img src="<%= user[:img] %>" alt="<%= user[:name] %>" />
-					<span><%= user[:name] %></span>				
+					<span id="<%= user[:name] %>_name"><%= user[:name] %></span>				
 				</dt>
-				<dd class="<% if hours < 7.5 %>bad<% else %>good<% end %>"><div style="width: <%= perc %>%;"><%= hours %></div></dd>
+				<dd id="<%= user[:name] %>_hours" class="<% if hours < 7.5 %>bad<% else %>good<% end %>">
+				<div id="<%= user[:name] %>_perc" style="width: <%= perc %>%;"><%= hours %></div>
+				</dd>
 			<% end %>
 		</dl>
 	</body>

@@ -60,3 +60,19 @@ get '/' do
   
   erb :index
 end
+
+get '/user/:name' do
+
+  entries  = @@tick.entries(:start_date => Date.today.to_s, 
+                            :end_date   => Date.today.to_s,
+                            :user_email      => params[:name] + '@globalpersonals.co.uk').entries.group_by{|d| d['user_id']}
+  for u in @@tick_users
+    if u['email'].split('@')[0] == params[:name]
+      hours = entries[u['id']] || [{'hours' => 0}]
+      total_hours = hours.collect{|h| h['hours']}.inject(:+)  
+
+      
+    end   
+  end
+ total_hours.to_s
+end
