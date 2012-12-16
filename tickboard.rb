@@ -45,17 +45,14 @@ get '/' do
   entries  = @@tick.entries(:start_date => Date.today.to_s, 
                             :end_date   => Date.today.to_s).entries.group_by{|d| d['user_id']}
 
-  # total up hours for each user and construct an array of user objects for the view
+  # total up hours for each user and construct an array of image urls for the view
   @users = []
   for u in @@tick_users
     hours = entries[u['id']] || [{'hours' => 0}]
-    total_hours = hours.collect{|h| h['hours']}.inject(:+)  
-    user = {
-      :name => u['email'].split('@')[0],
-      :hours => total_hours,
-      :img => 'https://gravatar.com/avatar/' + Digest::MD5.hexdigest(u['email'])
-    }
-    @users.push user
+    total_hours = hours.collect{|h| h['hours']}.inject(:+)
+		perc = (total_hours/7.5*100).to_i
+    # add them to the naughty list if they're not yet at 100% of their time
+    @users.push 'https://gravatar.com/avatar/' + Digest::MD5.hexdigest(u['email']) if perc < 100
   end
   
   erb :index

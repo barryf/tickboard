@@ -5,23 +5,12 @@
 		<title>Tickboard</title>
 		<link rel="stylesheet" href="/tickboard.css" type="text/css" />
 		<meta http-equiv="refresh" content="60" />
-		<!--[if IE]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 	</head>
 	<body>
-		<dl>
-			<% @users.each do |user| 
-				perc = (user[:hours]/7.5*100).to_i
-				perc = 100 if perc > 100
-				hours = sprintf('%.1f', user[:hours])
-			%>
-				<dt class="<% if perc < 100 %>bad<% else %>good<% end %>">
-					<img src="<%= user[:img] %>" alt="<%= user[:name] %>" />
-					<span><%= user[:name] %></span>
-				</dt>
-				<dd class="<% if perc < 100 %>bad<% else %>good<% end %>"><div style="width: <%= perc %>%;"><%= hours %></div></dd>
+        <ul>
+			<% @users.each do |user| %>
+				<li><img src="<%= user %>" /></li>
 			<% end %>
-		</dl>
+        </ul>
 	</body>
 </html>
