@@ -53,13 +53,13 @@ get '/' do
 
   # total up hours for each user and construct an array of image urls for the view
   @users = []
-  for u in @@tick_users
+  @@tick_users.each do |u|
     hours = entries[u['id']] || [{'hours' => 0}]
-    total_hours = hours.collect{|h| h['hours']}.inject(:+)
-		perc = (total_hours/7.5*100).to_i
+    total_hours = hours.collect{ |h| h['hours'] }.inject(:+)
+    perc = (total_hours/7.5*100).to_i
     # add them to the naughty list if they're not yet at 100% of their time
     @users.push User.new("#{u['first_name']} #{u['last_name']}", u['email']) if perc < 100
   end
-  
+
   erb :index
 end
