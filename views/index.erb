@@ -9,7 +9,7 @@
 	<body>
         <ul>
 			<% @users.each do |user| %>
-				<li><img src="<%= user %>" /></li>
+        <li><img src="<%= user.image %>" alt="" title="<%= user.name %>" data-email="<%= user.email %>" /></li>
 			<% end %>
         </ul>
 	</body>
