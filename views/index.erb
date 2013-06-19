@@ -1,16 +1,16 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Tickboard</title>
-		<link rel="stylesheet" href="/tickboard.css" type="text/css" />
-		<meta http-equiv="refresh" content="60" />
-	</head>
-	<body>
-        <ul>
-			<% @users.each do |user| %>
-				<li><img src="<%= user %>" /></li>
-			<% end %>
-        </ul>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Tickboard</title>
+    <link rel="stylesheet" href="/tickboard.css" type="text/css" />
+    <meta http-equiv="refresh" content="60" />
+  </head>
+  <body>
+    <ul>
+      <% @users.each do |user| %>
+        <li><img src="<%= user.image %>" alt="" title="<%= user.name %>" data-email="<%= user.email %>" /></li>
+      <% end %>
+    </ul>
+  </body>
 </html>
